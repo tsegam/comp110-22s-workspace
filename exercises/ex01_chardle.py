@@ -1,5 +1,4 @@
-""" EX01 - Chardle - A cute step toward Wordle."""
-
+"""EX01 - Chardle - A cute step toward Wordle."""
 ___author___ = "730439223"
 
 user_input_word: str = input("Enter a 5-character word: ")
@@ -48,5 +47,3 @@ if match >= 0:
         print("1 instance of " + user_input_letter + " found in " + user_input_word)
     elif match > 1:
         print(str(match) + " instances of " + user_input_letter + " found in " + user_input_word)
-
-
