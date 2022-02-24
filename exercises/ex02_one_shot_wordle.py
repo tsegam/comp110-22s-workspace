@@ -1,11 +1,12 @@
 """EX02 - One Shot Wordle."""
-___author___ = "730439223"
+__author__ = "730439223"
 
-secret: str = "pere"
+secret: str = "python"
 answer: str = input(f"What is your {len(secret)}-letter guess? ")
 i: int = 0
 result: str = ""
 
+exists: bool = False
 alt_i: int = 0
 
 WHITE_BOX: str = "\U00002B1C"
@@ -20,18 +21,20 @@ while (len(secret) < len(answer)):
 while (i < len(secret)):
     if (secret[i] == answer[i]):
         result = result + GREEN_BOX
-    else:
-        exists: bool = False
-        while (exists and i < len(secret)):
-            if (secret[alt_i] == answer[i]): 
+    else:  
+        while (exists is False and alt_i < len(secret)):
+            if (secret[alt_i] == answer[i]):
                 exists = True
-            else:               
-                alt_i = alt_i + 1                              
+            else:
+                alt_i = alt_i + 1
         if (exists):
             result = result + YELLOW_BOX
-        else:
-            result = result + WHITE_BOX
+        if (exists is False):
+            result = result + WHITE_BOX   
     i = i + 1
+    exists = False
+    alt_i = 0
+    
 print(result)
 
 if str(secret) == str(answer):
