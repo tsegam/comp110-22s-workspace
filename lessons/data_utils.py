@@ -1,8 +1,4 @@
-"""Dictionary related utility functions."""
-
-__author__ = "730439223"
-
-# Define your functions below
+"""Some helpful utility functions for working with CSV files."""
 
 from csv import DictReader
 
@@ -51,29 +47,3 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
         result[column] = column_values(row_table, column)
         
     return result
-
-
-def head(table: dict[str, list[str]], x: int) -> dict[str, list[str]]:
-    """Produce a column based table with only the first N rows."""    
-    result: dict[str, list[str]] = {}
-    # myList: dict[str, list[str]] = table[0]
-    # list[dict[str, list[str]]] = table[0]
-
-    keys = table.keys()
-
-    for key in keys:
-
-        myList: list[str] = []
-        counter: int = 0
-
-        for columnVal in table[key]:
-            if counter >= x:
-                break
-            counter += 1
-
-            myList.append(columnVal)
-
-        result[key] = myList
-            
-    return result
-

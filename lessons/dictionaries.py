@@ -52,7 +52,11 @@ schools = {
 }
 
 # Example looping over the keys of a dict
+list = []
+for key in schools.keys():
+    list.append(key)     
+print(list)
 
 for school in schools:
-    print(f"Key: {school} -> Value: {schools[school]}")
+    print(f"Key: {school} Key2: {list[1]}  -> Value: {schools[school]}")
 print(schools)
