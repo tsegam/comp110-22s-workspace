@@ -1,50 +1,11 @@
-"""EX06 - function skeletons and implementations."""
+def not_mask(mask: list[bool]) -> list[bool]:
+  result: list[bool] = []
+  for item in mask:
+    result.append(not item)
+  return result
 
-___author___ = "730439223"
+mask_a: list[bool] = less_than(col_data["high"], 80)
+mask_b: list[bool] = not_mask(mask_a)
 
-dictn: dict[str, str] 
-dictn = dict({'a': 'z', 'b': 'y', 'c': 'x'})
-
-list = []
-i = 1
-for key in dictn.keys():
-    'creates a list of keys.'
-    list.append(key)     
-
-if len(list) == len(set(list)):
-    'evaluates for duplicates of keys.'
-    raise KeyError("Dictionary cannot have the same key more than once. Please correct.")
-     
-new_dictn = {
-    newV: newK for newK, newV in dictn.items()
-}
-print(new_dictn)
-
-
-
-"""EX06 - function skeletons and implementations."""
-
-___author___ = "730439223"
-
-import pytest 
-
-
-def invert(dictn: dict[str, str]):
-    list = []
-    # i = 1
-    for key in dictn.keys():
-        'creates a list of keys.'
-        list.append(key)     
-    # for x in list:
-    #     'evaluates for duplicates of keys.'
-    #     if x == list[i]:
-    #         raise KeyError("Dictionary cannot have the same key more than once. Please correct.")
-    #     i = i + 1
-    if len(list) == len(set(list)):
-        'evaluates for duplicates of keys.'
-        raise KeyError("Dictionary cannot have the same key more than once. Please correct.")
-    else:   
-        new_dictn = {
-            newV: newK for newK, newV in dictn.items()
-        }
-        return(new_dictn)
+values: list[float] = masked(col_data["low"], mask_b)
+print(mean(values))
